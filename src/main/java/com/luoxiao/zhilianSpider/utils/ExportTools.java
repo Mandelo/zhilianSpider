@@ -9,16 +9,21 @@ import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.apache.poi.common.usermodel.Hyperlink;
 import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFCellStyle;
+import org.apache.poi.hssf.usermodel.HSSFFont;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.hssf.util.HSSFColor;
+import org.apache.poi.ss.usermodel.CreationHelper;
 
-/** 
-* @Description: 生成excel文件相关
-* @author luoxiao
-* @date 2017年3月27日 
-*/
+/**
+ * @Description: 生成excel文件相关
+ * @author luoxiao
+ * @date 2017年3月27日
+ */
 public class ExportTools {
 
     Connection connection;
@@ -33,9 +38,20 @@ public class ExportTools {
             @SuppressWarnings("resource")
             HSSFWorkbook workbook = new HSSFWorkbook();
             HSSFSheet sheet = workbook.createSheet("zhilian");
+            CreationHelper creationHelper = workbook.getCreationHelper();
             // 在sheet里创建第一行，参数为行索引(excel的行)，可以是0～65535之间的任何一个
             HSSFRow row = sheet.createRow((short) 0);
-            HSSFCell cell = null;
+            HSSFCell cell;
+
+            // url样式
+            HSSFCellStyle urlStyle = workbook.createCellStyle();
+            HSSFFont urlFont = workbook.createFont();
+            // 设置下划线
+            urlFont.setUnderline(HSSFFont.U_SINGLE);
+            // 设置字体颜色
+            urlFont.setColor(HSSFColor.BLUE.index);
+            urlStyle.setFont(urlFont);
+
             cell = row.createCell((short) 0);
             cell.setCellValue("编号");
             cell = row.createCell((short) 1);
@@ -43,7 +59,8 @@ public class ExportTools {
             cell = row.createCell((short) 2);
             cell.setCellValue("详情页");
             cell = row.createCell((short) 3);
-            cell.setCellValue("月薪");
+            /* link.setAddress(rs.getString("url")); */
+            cell.setCellValue("月薪:元/月");
             cell = row.createCell((short) 4);
             cell.setCellValue("地址");
             cell = row.createCell((short) 5);
@@ -58,8 +75,13 @@ public class ExportTools {
                 cell.setCellValue(rs.getString("id"));
                 cell = row.createCell(1);
                 cell.setCellValue(rs.getString("companyName"));
+                // url
                 cell = row.createCell(2);
+                Hyperlink link = creationHelper.createHyperlink(Hyperlink.LINK_URL);
                 cell.setCellValue(rs.getString("url"));
+                link.setAddress(rs.getString("url"));
+                cell.setHyperlink((org.apache.poi.ss.usermodel.Hyperlink) link);
+                cell.setCellStyle(urlStyle);
                 cell = row.createCell(3);
                 cell.setCellValue(rs.getString("wages"));
                 cell = row.createCell(4);
