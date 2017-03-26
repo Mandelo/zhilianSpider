@@ -16,4 +16,4 @@ XX网java爬虫
 </ul>
 截图 :
 
-![image](https://raw.githubusercontent.com/Mandelo/zhilianSpider/master/src/images/excel.png)
+![image](https://raw.githubusercontent.com/Mandelo/zhilianSpider/master/src/images/excel.jpg)
