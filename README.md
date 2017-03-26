@@ -14,6 +14,6 @@ XX网java爬虫
   <li>update maven project</li>
   <li>run Main.java</li>
 </ul>
-截图:
+截图 :
 
 ![image](https://github.com/Mandelo/zhilianSpider/excel.png)
