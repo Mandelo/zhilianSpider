@@ -22,7 +22,7 @@ public class Main {
 		ParseJobTools parseTools = new ParseJobTools();
 		ExportTools exportTools = new ExportTools();
 		//搜索关键字:"java" "武汉"
-		//parseTools.praseContent("JAVA", "武汉");
+		parseTools.praseContent("JAVA", "武汉");
 		//从数据库查询数据,并生成eacel文件
 		exportTools.exportExcel();
 	}
