@@ -17,8 +17,12 @@ XX网java爬虫
 </ul>
 截图 :
 
+<<<<<<< HEAD
 ![image](https://raw.githubusercontent.com/Mandelo/zhilianSpider/master/src/images/excel.jpg)
 =======
 # zhilianSpider2
 多线程zhilian爬虫
 >>>>>>> c49275314451831735d8a3116fe740a18fa7531a
+=======
+![image](https://raw.githubusercontent.com/Mandelo/zhilianSpider/master/src/images/excel.png)
+>>>>>>> parent of 7238def... 修正图片url
