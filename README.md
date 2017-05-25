@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # zhilianSpider
 XX网java爬虫
 <h2>主要功能</h2>
@@ -17,3 +18,7 @@ XX网java爬虫
 截图 :
 
 ![image](https://raw.githubusercontent.com/Mandelo/zhilianSpider/master/src/images/excel.jpg)
+=======
+# zhilianSpider2
+多线程zhilian爬虫
+>>>>>>> c49275314451831735d8a3116fe740a18fa7531a

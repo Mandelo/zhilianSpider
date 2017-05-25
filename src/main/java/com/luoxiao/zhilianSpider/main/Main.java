@@ -2,9 +2,7 @@ package com.luoxiao.zhilianSpider.main;
 
 import java.io.IOException;
 import java.sql.SQLException;
-
-import com.luoxiao.zhilianSpider.utils.ExportTools;
-import com.luoxiao.zhilianSpider.utils.ParseJobTools;
+import com.luoxiao.zhilianSpider.utils.ParseThread;
 
 /** 
 * @Description: 主方法
@@ -12,19 +10,23 @@ import com.luoxiao.zhilianSpider.utils.ParseJobTools;
 * @date 2017年3月25日 
 */
 public class Main {
-	/**
-	 * @param args 设置关键字 职业 和 地区
-	 * @throws SQLException 
-	 * @throws ClassNotFoundException 
-	 * @throws IOException 
-	 */
+	
 	public static void main(String[] args) throws ClassNotFoundException, SQLException, IOException {
-		ParseJobTools parseTools = new ParseJobTools();
-		ExportTools exportTools = new ExportTools();
-		//搜索关键字:"java" "武汉"
-		parseTools.praseContent("JAVA", "武汉");
-		//从数据库查询数据,并生成eacel文件
-		exportTools.exportExcel();
+		
+	    ParseThread parseThread = new ParseThread();
+		Thread th1 = new Thread(parseThread);
+		th1.setName("爬虫 [1]号");
+		Thread th2 = new Thread(parseThread);
+		th2.setName("爬虫 [2]号");
+		Thread th3 = new Thread(parseThread);
+		th3.setName("爬虫 [3]号");
+		Thread th4 = new Thread(parseThread);
+		th4.setName("爬虫 [4]号");
+		th1.start();
+		th2.start();
+		th3.start();
+		th4.start();
+	
 	}
 
 }
