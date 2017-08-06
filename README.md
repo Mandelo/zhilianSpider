@@ -1,5 +1,5 @@
 # zhilianSpider
-XX网java爬虫
+XX网java爬虫单线程版。多线程版请点击<a href="https://github.com/Mandelo/zhilianSpider2">这里</a>
 <h2>主要功能</h2>
 <ul>
 	<li>根据关键字爬取信息</li>
